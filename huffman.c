@@ -187,7 +187,11 @@ void createCompressedFile(char* fileName, tNode* tree){
             }
         }
     }
-    fputs(codes, new);
+    
+    for(int i = 0 ; i < amountOfBytes; i++){
+    fputc(codes[i], new);
+    }
+    
     fputc(amountOfBytes * 8 - amountOfBits, new); //put amount of useless bits at the end
     fclose(new);
     fclose(file);
